@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>裕德高中游泳隊 全國北區A(2)游泳錦標賽 賽程</title>
+<meta name="description" content="裕德高中游泳隊在115年全國北區A(2)游泳錦標賽的項次、組別、水道與報名成績，可依日期、性別、姓名篩選，並下載 PDF 或圖片。">
+<style>
+:root{
+  --ink:#08304f;      /* 深水 */
+  --tile:#16a6b6;     /* 池磚 */
+  --teal:#0a7885;     /* 文字用的深池磚色 */
+  --foam:#eef6f7;     /* 池畔 */
+  --rope:#f5c400;     /* 水道線浮球黃 */
+  --buoy:#e5484d;     /* 浮球紅 */
+  --line:#cfe3e6;
+  --muted:#556d7e;
+  --male-bg:#e3edfc; --male-fg:#1a4fb0;
+  --female-bg:#fde6ee; --female-fg:#b01f55;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--foam);color:#12283a;
+  font:16px/1.55 "PingFang TC","Microsoft JhengHei","Noto Sans TC","Heiti TC",system-ui,sans-serif;
+}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* ── 頁首 ── */
+.masthead{background:var(--ink);color:#fff;padding:30px 0 24px}
+.masthead h1{margin:0;font-size:clamp(28px,5.4vw,46px);line-height:1.15;font-weight:800;letter-spacing:.03em}
+.masthead .meet{margin:8px 0 0;font-size:clamp(15px,2.4vw,18px);color:#cfeaee}
+.masthead .sum{margin:6px 0 0;font-size:14px;color:#8fc9d1}
+.rope{
+  height:14px;background-color:var(--ink);
+  background-image:
+    radial-gradient(circle at 7px 7px,var(--rope) 5.5px,#0000 6px),
+    radial-gradient(circle at 21px 7px,#fff 5.5px,#0000 6px),
+    radial-gradient(circle at 35px 7px,var(--buoy) 5.5px,#0000 6px);
+  background-size:42px 14px;background-repeat:repeat-x;
+}
+
+/* ── 篩選列 ── */
+.filters{background:#fff;border-bottom:1px solid var(--line)}
+@media(min-width:721px){.filters{position:sticky;top:0;z-index:20;box-shadow:0 1px 0 var(--line)}}
+.filters .wrap{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:flex-end;padding-top:14px;padding-bottom:14px}
+.grp .t{display:block;margin:0 0 5px;font-size:13px;font-weight:700;color:var(--muted)}
+.seg{display:inline-flex;border:1.5px solid var(--ink);border-radius:10px;overflow:hidden;background:#fff}
+.seg button{
+  border:0;border-right:1.5px solid var(--ink);background:#fff;color:var(--ink);
+  padding:8px 14px;font:inherit;font-size:15px;font-weight:700;cursor:pointer;line-height:1.3;
+}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.seg button small{font-size:12px;font-weight:500;margin-left:6px;opacity:.75}
+.namebox{position:relative}
+.namebox input{
+  width:210px;height:40px;border:1.5px solid var(--ink);border-radius:10px;
+  padding:0 36px 0 12px;font:inherit;font-size:16px;color:#12283a;background:#fff;
+}
+.namebox input::-webkit-search-cancel-button{-webkit-appearance:none;display:none}
+.namebox .x{
+  position:absolute;right:4px;top:4px;width:32px;height:32px;border:0;border-radius:8px;
+  background:transparent;color:var(--muted);font-size:20px;line-height:1;cursor:pointer;
+}
+.namebox .x[hidden]{display:none}
+.actions{margin-left:auto;display:flex;flex-wrap:wrap;gap:8px}
+.btn{
+  height:40px;padding:0 16px;border-radius:10px;border:1.5px solid var(--ink);
+  background:#fff;color:var(--ink);font:inherit;font-size:15px;font-weight:700;cursor:pointer;
+}
+.btn.pri{background:var(--rope)}
+.btn.quiet{border-color:var(--line);color:var(--muted);font-weight:600}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--tile);outline-offset:2px}
+.seg button:hover:not([aria-pressed="true"]){background:#e6f3f5}
+.btn:active,.seg button:active{transform:translateY(1px)}
+
+/* ── 結果 ── */
+main.wrap{padding-top:18px;padding-bottom:40px}
+.bar{display:flex;align-items:center;gap:14px;min-height:34px;margin-bottom:4px;font-size:15px;color:var(--muted)}
+.bar b{color:var(--ink)}
+.linkbtn{border:0;background:none;padding:4px 2px;font:inherit;font-size:15px;font-weight:700;color:var(--teal);text-decoration:underline;cursor:pointer}
+.day{margin:22px 0 0}
+.day h2{
+  display:flex;align-items:baseline;gap:12px;margin:0 0 10px;padding-bottom:6px;
+  border-bottom:3px solid var(--ink);
+}
+.day .dd{font-size:32px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+.day .wd{font-size:17px;font-weight:700;color:var(--teal)}
+.day .n{margin-left:auto;font-size:14px;color:var(--muted)}
+
+.sched{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.sched th{background:#dff0f2;color:var(--ink);text-align:left;font-size:14px;font-weight:700;padding:9px 12px;white-space:nowrap}
+.sched td{padding:10px 12px;border-top:1px solid #e3eef0;vertical-align:middle}
+.sched tbody tr:first-child td{border-top:0}
+.sched .no{width:58px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.sched .ev b{display:block;font-size:17px;line-height:1.3}
+.sched .ev .sub{display:block;margin-top:2px;font-size:14px;color:#3c5568}
+.sx{display:inline-block;margin-left:6px;padding:0 9px;border-radius:999px;font-size:13px;font-weight:700;line-height:1.6}
+.sx.m{background:var(--male-bg);color:var(--male-fg)}
+.sx.f{background:var(--female-bg);color:var(--female-fg)}
+.sched .ht{white-space:nowrap;font-variant-numeric:tabular-nums}
+.sched .ht small{display:block;font-size:12px;color:var(--muted)}
+.plate{
+  display:inline-grid;place-items:center;min-width:36px;height:36px;padding:0 6px;
+  background:var(--ink);color:#fff;font-weight:800;font-size:17px;border-radius:8px;
+  border-top:4px solid var(--rope);font-variant-numeric:tabular-nums;
+}
+.sched .nm{font-size:17px;font-weight:800}
+.sched .nm.relay{font-weight:700;color:var(--teal)}
+.sched .tm{font-weight:700;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.sched .tm.odd{color:#8fa0ad;font-weight:500}
+.empty{margin:40px 0;padding:34px 20px;text-align:center;background:#fff;border:1px dashed var(--line);border-radius:12px;color:var(--muted)}
+.empty b{display:block;margin-bottom:6px;font-size:18px;color:var(--ink)}
+.foot{margin-top:34px;font-size:13px;color:var(--muted)}
+.foot p{margin:4px 0}
+.foot a{color:var(--teal)}
+
+/* ── 手機：每一列變成一張小卡 ── */
+@media(max-width:720px){
+  .wrap{padding:0 14px}
+  .masthead{padding:22px 0 18px}
+  .filters .wrap{gap:12px}
+  .grp{width:100%}
+  .seg{display:flex;width:100%}
+  .seg button{flex:1;padding:7px 4px;text-align:center}
+  .seg button small{display:block;margin:0}
+  .namebox input{width:100%}
+  .actions{margin-left:0;width:100%}
+  .actions .btn{flex:1}
+  .sched{background:none;border:0;border-radius:0}
+  .sched thead{display:none}
+  .sched tbody{display:block}
+  .sched tr{
+    display:grid;grid-template-columns:46px 1fr auto;column-gap:12px;row-gap:1px;
+    grid-template-areas:"no ev ln" "no nm ht" "no tm ht";
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px;
+  }
+  .sched td{display:block;padding:0;border:0}
+  .sched .no{grid-area:no;display:grid;place-items:center;width:auto;background:#eaf3f5;border-radius:8px;font-size:17px;color:var(--ink)}
+  .sched .ev{grid-area:ev}
+  .sched .ln{grid-area:ln;justify-self:end;align-self:start}
+  .sched .ln::before{content:"水道";margin-right:6px;font-size:12px;color:var(--muted)}
+  .sched .nm{grid-area:nm;margin-top:6px}
+  .sched .tm{grid-area:tm;text-align:left}
+  .sched .tm::before{content:"報名 ";font-weight:500;color:var(--muted)}
+  .sched .ht{grid-area:ht;align-self:end;text-align:right;font-weight:700}
+}
+
+/* ── 輸出用畫面（固定寬度，不受手機版面影響）── */
+.ex-stage{position:absolute;top:0;left:0;width:1000px;z-index:1}
+.ex{width:1000px;background:#fff;color:#12283a;font:15px/1.5 "PingFang TC","Microsoft JhengHei","Noto Sans TC","Heiti TC",sans-serif}
+.ex-head{background:#08304f;color:#fff;padding:26px 30px 20px}
+.ex-t{font-size:32px;font-weight:800;letter-spacing:.03em}
+.ex-s{margin-top:4px;font-size:17px;color:#cfeaee}
+.ex-f{margin-top:8px;font-size:14px;color:#8fc9d1}
+.ex-rope{height:10px;background:repeating-linear-gradient(90deg,#f5c400 0 14px,#ffffff 14px 28px,#e5484d 28px 42px)}
+.ex-tb{width:100%;border-collapse:collapse;table-layout:fixed}
+.ex-tb th{background:#dff0f2;color:#08304f;font-size:14px;font-weight:700;text-align:left;padding:9px 10px}
+.ex-tb td{padding:8px 10px;border-top:1px solid #e3eef0;font-size:15px;vertical-align:middle;word-break:break-all}
+.ex-tb tr.day td{background:#08304f;color:#fff;font-size:16px;font-weight:800;padding:9px 12px;border-top:0}
+.ex-tb tr.day td span{font-weight:500;font-size:13px;color:#8fc9d1;margin-left:10px}
+.ex-tb tr.z td{background:#f6fafb}
+.ex-tb .c-no{font-weight:800;color:#556d7e}
+.ex-tb .c-it{font-weight:800}
+.ex-tb .c-ln{font-weight:800;font-size:16px}
+.ex-tb .c-nm{font-weight:800}
+.ex-tb .c-tm{font-weight:700;text-align:right;padding-right:16px}
+.ex-tb .odd{color:#8fa0ad;font-weight:500}
+.ex-tb .m{color:#1a4fb0;font-weight:700}
+.ex-tb .f{color:#b01f55;font-weight:700}
+.ex-note{padding:14px 30px 20px;font-size:12px;color:#556d7e;border-top:1px solid #e3eef0}
+
+#busy{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:rgba(8,48,79,.94);color:#fff;font-size:18px;font-weight:700;text-align:center;padding:20px}
+#busy[hidden]{display:none}
+#busy small{display:block;margin-top:8px;font-size:14px;font-weight:500;color:#9fd3da}
+
+@media print{
+  .filters,.rope,#busy,#stage,.actions,.linkbtn{display:none!important}
+  body{background:#fff}
+  .masthead{background:#fff;color:#000;padding:0 0 8px}
+  .masthead .meet,.masthead .sum{color:#333}
+  .sched tr{break-inside:avoid}
+  .sched thead{display:table-header-group}
+  .day{break-inside:auto}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <h1>裕德高中游泳隊</h1>
+    <p class="meet">115年全國北區A(2)游泳錦標賽 賽程（115/10/02 至 10/04）</p>
+    <p class="sum" id="sum"></p>
+  </div>
+</header>
+<div class="rope" aria-hidden="true"></div>
+
+<nav class="filters" aria-label="篩選條件">
+  <div class="wrap">
+    <div class="grp"><span class="t" id="lbl-date">日期</span><div class="seg" id="segDate" role="group" aria-labelledby="lbl-date"></div></div>
+    <div class="grp"><span class="t" id="lbl-sex">性別</span><div class="seg" id="segSex" role="group" aria-labelledby="lbl-sex"></div></div>
+    <div class="grp">
+      <label class="t" for="q">姓名</label>
+      <div class="namebox">
+        <input id="q" type="search" list="names" placeholder="輸入或選擇姓名" autocomplete="off" enterkeyhint="search">
+        <datalist id="names"></datalist>
+        <button class="x" id="clearQ" type="button" aria-label="清除姓名" hidden>×</button>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn pri" id="btnPdf" type="button">下載 PDF</button>
+      <button class="btn" id="btnPng" type="button">下載圖片</button>
+      <button class="btn quiet" id="btnPrint" type="button">列印</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="bar" aria-live="polite"><span id="count"></span><button class="linkbtn" id="reset" type="button" hidden>重設篩選</button></div>
+  <div id="list"></div>
+  <div class="foot">
+    <p>這是報名時的編排資料，實際出賽組別與水道以大會現場公告為準。</p>
+    <p>灰色的報名成績（例如 34:56.78）是原網頁上的預設或異常值，僅供參考。</p>
+    <p>資料來源：<a href="https://ctsa.utk.com.tw/CTSA/public/rbook/RBook_5_Date.aspx?id=0B&amp;Activity_ID=175" target="_blank" rel="noopener">中華民國游泳協會 游泳分項編配表</a>，資料擷取日 2026/09/20。</p>
+  </div>
+</main>
+
+<div id="stage" class="ex-stage" aria-hidden="true"></div>
+<div id="busy" hidden role="status"><div><span id="busyMsg">正在產生檔案…</span><small>項目較多時需要幾秒鐘，請稍候</small></div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+/* 欄位：[日期, 項次, 歲級, 性別, 項目, 總組數, 比賽組, 水道, 姓名, 報名秒數] */
+const DATA = [["115/10/02",6,"15 ~ 17歲級","男子組","400公尺混合式","分3組","第1/3組",3,"洪秉淵","05:25.00"],["115/10/02",8,"10及以下歲級","女子組","50公尺蝶式","分8組","第3/8組",0,"李雨蔓","01:00.00"],["115/10/02",8,"10及以下歲級","女子組","50公尺蝶式","分8組","第3/8組",4,"簡歆芸","00:55.13"],["115/10/02",9,"10及以下歲級","男子組","50公尺蝶式","分11組","第9/11組",3,"鄧丞勛","00:41.29"],["115/10/02",10,"11 & 12歲級","女子組","50公尺蝶式","分9組","第5/9組",8,"劉于菲","00:42.00"],["115/10/02",10,"11 & 12歲級","女子組","50公尺蝶式","分9組","第6/9組",6,"張宸語","00:39.00"],["115/10/02",10,"11 & 12歲級","女子組","50公尺蝶式","分9組","第6/9組",7,"簡歆宸","00:39.60"],["115/10/02",11,"11 & 12歲級","男子組","50公尺蝶式","分13組","第5/13組",2,"楊承勳","00:43.73"],["115/10/02",11,"11 & 12歲級","男子組","50公尺蝶式","分13組","第11/13組",4,"饒宸宇","00:36.03"],["115/10/02",12,"13 & 14歲級","女子組","50公尺蝶式","分6組","第3/6組",8,"邱湘甯","00:38.50"],["115/10/02",12,"13 & 14歲級","女子組","50公尺蝶式","分6組","第5/6組",2,"黃歆甯","00:34.00"],["115/10/02",15,"15 ~ 17歲級","男子組","50公尺蝶式","分8組","第2/8組",1,"陳威誌","00:34.00"],["115/10/02",15,"15 ~ 17歲級","男子組","50公尺蝶式","分8組","第6/8組",0,"洪秉淵","00:29.00"],["115/10/02",18,"10及以下歲級","女子組","100公尺仰式","分7組","第5/7組",7,"簡歆芸","01:42.70"],["115/10/02",19,"10及以下歲級","男子組","100公尺仰式","分9組","第7/9組",4,"鄧丞勛","01:34.42"],["115/10/02",20,"11 & 12歲級","女子組","100公尺仰式","分9組","第4/9組",2,"簡歆宸","01:37.38"],["115/10/02",20,"11 & 12歲級","女子組","100公尺仰式","分9組","第4/9組",6,"劉于菲","01:37.02"],["115/10/02",20,"11 & 12歲級","女子組","100公尺仰式","分9組","第5/9組",3,"張宸語","01:34.00"],["115/10/02",21,"11 & 12歲級","男子組","100公尺仰式","分11組","第3/11組",4,"楊承勳","01:37.47"],["115/10/02",21,"11 & 12歲級","男子組","100公尺仰式","分11組","第9/11組",3,"饒宸宇","01:23.00"],["115/10/02",22,"13 & 14歲級","女子組","100公尺仰式","分4組","第3/4組",0,"邱湘甯","01:24.00"],["115/10/02",22,"13 & 14歲級","女子組","100公尺仰式","分4組","第3/4組",5,"楊詠甯","01:20.36"],["115/10/02",25,"15 ~ 17歲級","男子組","100公尺仰式","分5組","第2/5組",6,"陳威誌","01:19.00"],["115/10/02",25,"15 ~ 17歲級","男子組","100公尺仰式","分5組","第4/5組",9,"洪秉淵","01:12.00"],["115/10/02",29,"10及以下歲級","男子組","200公尺自由式","分10組","第5/10組",2,"鄧丞勛","03:15.00"],["115/10/02",30,"11 & 12歲級","女子組","200公尺自由式","分10組","第4/10組",4,"劉于菲","03:00.00"],["115/10/02",30,"11 & 12歲級","女子組","200公尺自由式","分10組","第4/10組",5,"簡歆宸","03:00.00"],["115/10/02",31,"11 & 12歲級","男子組","200公尺自由式","分13組","第8/13組",8,"饒宸宇","02:50.00"],["115/10/02",32,"13 & 14歲級","女子組","200公尺自由式","分6組","第3/6組",8,"邱湘甯","02:50.00"],["115/10/02",32,"13 & 14歲級","女子組","200公尺自由式","分6組","第4/6組",8,"黃歆甯","02:40.00"],["115/10/02",32,"13 & 14歲級","女子組","200公尺自由式","分6組","第4/6組",9,"楊詠甯","02:41.00"],["115/10/02",35,"15 ~ 17歲級","男子組","200公尺自由式","分6組","第4/6組",2,"洪秉淵","02:14.00"],["115/10/03",58,"15 ~ 17歲級","男子組","400公尺自由式","分7組","第4/7組",7,"洪秉淵","04:48.00"],["115/10/03",60,"10及以下歲級","女子組","50公尺蛙式","分8組","第4/8組",1,"李雨蔓","00:56.00"],["115/10/03",61,"10及以下歲級","男子組","50公尺蛙式","分12組","第4/12組",2,"范睿恩","01:02.00"],["115/10/03",61,"10及以下歲級","男子組","50公尺蛙式","分12組","第4/12組",6,"張宸宇","01:02.00"],["115/10/03",61,"10及以下歲級","男子組","50公尺蛙式","分12組","第6/12組",1,"高上杰","00:56.00"],["115/10/03",61,"10及以下歲級","男子組","50公尺蛙式","分12組","第7/12組",0,"張宸睿","00:54.92"],["115/10/03",61,"10及以下歲級","男子組","50公尺蛙式","分12組","第12/12組",9,"鄧丞勛","00:44.00"],["115/10/03",62,"11 & 12歲級","女子組","50公尺蛙式","分9組","第5/9組",2,"胡以萌","00:48.00"],["115/10/03",62,"11 & 12歲級","女子組","50公尺蛙式","分9組","第6/9組",9,"李孟庭","00:47.00"],["115/10/03",62,"11 & 12歲級","女子組","50公尺蛙式","分9組","第9/9組",5,"簡歆宸","00:38.50"],["115/10/03",63,"11 & 12歲級","男子組","50公尺蛙式","分12組","第2/12組",3,"楊承勳","00:57.23"],["115/10/03",63,"11 & 12歲級","男子組","50公尺蛙式","分12組","第3/12組",2,"范家睿","00:55.00"],["115/10/03",63,"11 & 12歲級","男子組","50公尺蛙式","分12組","第9/12組",8,"饒宸宇","00:44.17"],["115/10/03",64,"13 & 14歲級","女子組","50公尺蛙式","分5組","第3/5組",2,"喻奕婕","00:42.00"],["115/10/03",64,"13 & 14歲級","女子組","50公尺蛙式","分5組","第3/5組",6,"邱湘甯","00:42.00"],["115/10/03",64,"13 & 14歲級","女子組","50公尺蛙式","分5組","第4/5組",3,"黃歆甯","00:39.11"],["115/10/03",67,"15 ~ 17歲級","男子組","50公尺蛙式","分6組","第3/6組",2,"陳威誌","00:35.68"],["115/10/03",72,"13 & 14歲級","女子組","200公尺仰式","分3組","第2/3組",5,"楊詠甯","02:53.00"],["115/10/03",75,"15 ~ 17歲級","男子組","200公尺仰式","分4組","第2/4組",0,"洪秉淵","02:45.00"],["115/10/03",86,"10及以下歲級","女子組","200公尺混合式","分6組","第3/6組",9,"簡歆芸","03:49.00"],["115/10/03",87,"10及以下歲級","男子組","200公尺混合式","分8組","第4/8組",8,"張宸睿","03:28.52"],["115/10/03",87,"10及以下歲級","男子組","200公尺混合式","分8組","第7/8組",6,"鄧丞勛","03:08.92"],["115/10/03",88,"11 & 12歲級","女子組","200公尺混合式","分8組","第4/8組",1,"劉于菲","03:18.00"],["115/10/03",88,"11 & 12歲級","女子組","200公尺混合式","分8組","第6/8組",1,"簡歆宸","03:03.76"],["115/10/03",88,"11 & 12歲級","女子組","200公尺混合式","分8組","第6/8組",3,"余詠晴","03:00.00"],["115/10/03",89,"11 & 12歲級","男子組","200公尺混合式","分12組","第3/12組",3,"范家睿","03:30.00"],["115/10/03",89,"11 & 12歲級","男子組","200公尺混合式","分12組","第6/12組",1,"楊承勳","03:18.00"],["115/10/03",89,"11 & 12歲級","男子組","200公尺混合式","分12組","第10/12組",6,"饒宸宇","02:54.00"],["115/10/03",90,"13 & 14歲級","女子組","200公尺混合式","分6組","第4/6組",2,"邱湘甯","02:55.00"],["115/10/03",90,"13 & 14歲級","女子組","200公尺混合式","分6組","第4/6組",7,"喻奕婕","02:55.00"],["115/10/03",90,"13 & 14歲級","女子組","200公尺混合式","分6組","第5/6組",0,"楊詠甯","02:50.00"],["115/10/03",90,"13 & 14歲級","女子組","200公尺混合式","分6組","第5/6組",5,"黃歆甯","02:45.00"],["115/10/03",93,"15 ~ 17歲級","男子組","200公尺混合式","分6組","第3/6組",4,"洪秉淵","02:33.90"],["115/10/03",98,"11 & 12歲級","女子組","4×50公尺混合式接力","分2組","第二組",6,"（接力隊）","02:29.00"],["115/10/03",100,"13 & 14歲級","女子組","4×100公尺混合式接力","未分組","第一組",3,"（接力隊）","05:45.00"],["115/10/04",110,"10及以下歲級","女子組","100公尺自由式","分10組","第4/10組",6,"李雨蔓","01:42.00"],["115/10/04",110,"10及以下歲級","女子組","100公尺自由式","分10組","第7/10組",5,"溫予旎","01:28.00"],["115/10/04",111,"10及以下歲級","男子組","100公尺自由式","分15組","第1/15組",3,"鄧丞勛","34:56.78"],["115/10/04",111,"10及以下歲級","男子組","100公尺自由式","分15組","第3/15組",6,"張宸宇","02:00.00"],["115/10/04",111,"10及以下歲級","男子組","100公尺自由式","分15組","第6/15組",0,"饒宸安","01:40.47"],["115/10/04",111,"10及以下歲級","男子組","100公尺自由式","分15組","第6/15組",5,"張宸睿","01:38.00"],["115/10/04",111,"10及以下歲級","男子組","100公尺自由式","分15組","第7/15組",8,"林品辰","01:37.74"],["115/10/04",111,"10及以下歲級","男子組","100公尺自由式","分15組","第8/15組",5,"饒宸睿","01:30.63"],["115/10/04",111,"10及以下歲級","男子組","100公尺自由式","分15組","第9/15組",9,"呂杰叡","01:30.00"],["115/10/04",112,"11 & 12歲級","女子組","100公尺自由式","分14組","第1/14組",7,"林岑謙","34:56.78"],["115/10/04",112,"11 & 12歲級","女子組","100公尺自由式","分14組","第2/14組",4,"薛昀瀅","01:35.00"],["115/10/04",112,"11 & 12歲級","女子組","100公尺自由式","分14組","第2/14組",6,"李孟庭","01:36.24"],["115/10/04",112,"11 & 12歲級","女子組","100公尺自由式","分14組","第7/14組",5,"張宸語","01:20.00"],["115/10/04",112,"11 & 12歲級","女子組","100公尺自由式","分14組","第7/14組",8,"胡以萌","01:21.82"],["115/10/04",112,"11 & 12歲級","女子組","100公尺自由式","分14組","第8/14組",4,"劉于菲","01:18.58"],["115/10/04",112,"11 & 12歲級","女子組","100公尺自由式","分14組","第10/14組",1,"簡歆宸","01:16.00"],["115/10/04",112,"11 & 12歲級","女子組","100公尺自由式","分14組","第12/14組",9,"余詠晴","01:12.84"],["115/10/04",113,"11 & 12歲級","男子組","100公尺自由式","分17組","第2/17組",5,"楊承勳","01:35.75"],["115/10/04",113,"11 & 12歲級","男子組","100公尺自由式","分17組","第5/17組",2,"陳篤靖","01:26.00"],["115/10/04",113,"11 & 12歲級","男子組","100公尺自由式","分17組","第15/17組",6,"饒宸宇","01:09.00"],["115/10/04",114,"13 & 14歲級","女子組","100公尺自由式","分9組","第5/9組",0,"邱湘甯","01:14.00"],["115/10/04",114,"13 & 14歲級","女子組","100公尺自由式","分9組","第7/9組",1,"楊詠甯","01:10.00"],["115/10/04",114,"13 & 14歲級","女子組","100公尺自由式","分9組","第8/9組",8,"黃歆甯","01:08.00"],["115/10/04",117,"15 ~ 17歲級","男子組","100公尺自由式","分10組","第4/10組",1,"陳威誌","01:05.86"],["115/10/04",117,"15 ~ 17歲級","男子組","100公尺自由式","分10組","第7/10組",2,"洪秉淵","00:59.00"],["115/10/04",120,"10及以下歲級","女子組","50公尺仰式","分11組","第3/11組",7,"李雨蔓","00:59.00"],["115/10/04",120,"10及以下歲級","女子組","50公尺仰式","分11組","第5/11組",9,"薛巧鈺","00:52.00"],["115/10/04",121,"10及以下歲級","男子組","50公尺仰式","分14組","第2/14組",3,"張宸宇","01:04.06"],["115/10/04",121,"10及以下歲級","男子組","50公尺仰式","分14組","第3/14組",3,"饒宸安","00:57.00"],["115/10/04",121,"10及以下歲級","男子組","50公尺仰式","分14組","第3/14組",6,"范睿恩","00:57.00"],["115/10/04",121,"10及以下歲級","男子組","50公尺仰式","分14組","第6/14組",5,"吳振綸","00:52.00"],["115/10/04",121,"10及以下歲級","男子組","50公尺仰式","分14組","第7/14組",8,"呂杰叡","00:50.00"],["115/10/04",121,"10及以下歲級","男子組","50公尺仰式","分14組","第9/14組",3,"饒宸睿","00:46.54"],["115/10/04",121,"10及以下歲級","男子組","50公尺仰式","分14組","第9/14組",9,"林品辰","00:47.00"],["115/10/04",121,"10及以下歲級","男子組","50公尺仰式","分14組","第10/14組",6,"鄧丞勛","00:45.11"],["115/10/04",121,"10及以下歲級","男子組","50公尺仰式","分14組","第12/14組",2,"張宸睿","00:43.24"],["115/10/04",122,"11 & 12歲級","女子組","50公尺仰式","分12組","第2/12組",1,"薛昀瀅","00:50.00"],["115/10/04",122,"11 & 12歲級","女子組","50公尺仰式","分12組","第3/12組",0,"李孟庭","00:49.00"],["115/10/04",122,"11 & 12歲級","女子組","50公尺仰式","分12組","第3/12組",3,"胡以萌","00:48.00"],["115/10/04",122,"11 & 12歲級","女子組","50公尺仰式","分12組","第6/12組",6,"林岑謙","00:43.57"],["115/10/04",122,"11 & 12歲級","女子組","50公尺仰式","分12組","第6/12組",7,"張宸語","00:43.96"],["115/10/04",122,"11 & 12歲級","女子組","50公尺仰式","分12組","第8/12組",2,"簡歆宸","00:41.28"],["115/10/04",122,"11 & 12歲級","女子組","50公尺仰式","分12組","第8/12組",6,"劉于菲","00:41.00"],["115/10/04",122,"11 & 12歲級","女子組","50公尺仰式","分12組","第10/12組",1,"余詠晴","00:39.00"],["115/10/04",123,"11 & 12歲級","男子組","50公尺仰式","分14組","第2/14組",7,"陳篤靖","00:52.00"],["115/10/04",123,"11 & 12歲級","男子組","50公尺仰式","分14組","第4/14組",4,"楊承勳","00:47.00"],["115/10/04",123,"11 & 12歲級","男子組","50公尺仰式","分14組","第7/14組",5,"饒宸宇","00:43.00"],["115/10/04",124,"13 & 14歲級","女子組","50公尺仰式","分6組","第2/6組",6,"邱湘甯","00:42.00"],["115/10/04",124,"13 & 14歲級","女子組","50公尺仰式","分6組","第6/6組",8,"楊詠甯","00:35.68"],["115/10/04",127,"15 ~ 17歲級","男子組","50公尺仰式","分7組","第3/7組",1,"陳威誌","00:35.68"],["115/10/04",127,"15 ~ 17歲級","男子組","50公尺仰式","分7組","第7/7組",6,"洪秉淵","00:30.50"],["115/10/04",130,"10及以下歲級","女子組","100公尺蛙式","分9組","第3/9組",8,"溫予旎","02:12.00"],["115/10/04",130,"10及以下歲級","女子組","100公尺蛙式","分9組","第3/9組",9,"李雨蔓","02:13.00"],["115/10/04",130,"10及以下歲級","女子組","100公尺蛙式","分9組","第5/9組",2,"簡歆芸","01:58.17"],["115/10/04",131,"10及以下歲級","男子組","100公尺蛙式","分10組","第2/10組",8,"張宸宇","02:34.93"],["115/10/04",131,"10及以下歲級","男子組","100公尺蛙式","分10組","第4/10組",6,"饒宸安","02:00.62"],["115/10/04",131,"10及以下歲級","男子組","100公尺蛙式","分10組","第6/10組",0,"呂杰叡","01:50.00"],["115/10/04",131,"10及以下歲級","男子組","100公尺蛙式","分10組","第10/10組",9,"鄧丞勛","01:37.01"],["115/10/04",132,"11 & 12歲級","女子組","100公尺蛙式","分8組","第2/8組",8,"李孟庭","01:57.00"],["115/10/04",132,"11 & 12歲級","女子組","100公尺蛙式","分8組","第5/8組",0,"胡以萌","01:42.00"],["115/10/04",132,"11 & 12歲級","女子組","100公尺蛙式","分8組","第7/8組",5,"簡歆宸","01:29.80"],["115/10/04",134,"13 & 14歲級","女子組","100公尺蛙式","分4組","第1/4組",6,"邱湘甯","01:42.00"],["115/10/04",134,"13 & 14歲級","女子組","100公尺蛙式","分4組","第1/4組",7,"喻奕婕","01:43.00"],["115/10/04",137,"15 ~ 17歲級","男子組","100公尺蛙式","分6組","第3/6組",5,"陳威誌","01:22.25"],["115/10/04",140,"10及以下歲級","女子組","50公尺自由式","分11組","第4/11組",8,"李雨蔓","00:47.00"],["115/10/04",140,"10及以下歲級","女子組","50公尺自由式","分11組","第5/11組",7,"溫予旎","00:44.00"],["115/10/04",141,"10及以下歲級","男子組","50公尺自由式","分16組","第4/16組",8,"范睿恩","00:51.00"],["115/10/04",141,"10及以下歲級","男子組","50公尺自由式","分16組","第5/16組",0,"張宸宇","00:49.43"],["115/10/04",141,"10及以下歲級","男子組","50公尺自由式","分16組","第5/16組",5,"饒宸安","00:47.17"],["115/10/04",141,"10及以下歲級","男子組","50公尺自由式","分16組","第6/16組",0,"吳振綸","00:46.00"],["115/10/04",141,"10及以下歲級","男子組","50公尺自由式","分16組","第6/16組",6,"林品辰","00:45.00"],["115/10/04",141,"10及以下歲級","男子組","50公尺自由式","分16組","第9/16組",9,"呂杰叡","00:40.00"],["115/10/04",141,"10及以下歲級","男子組","50公尺自由式","分16組","第10/16組",0,"饒宸睿","00:39.35"],["115/10/04",141,"10及以下歲級","男子組","50公尺自由式","分16組","第12/16組",5,"鄧丞勛","00:37.07"],["115/10/04",141,"10及以下歲級","男子組","50公尺自由式","分16組","第13/16組",7,"張宸睿","00:36.60"],["115/10/04",142,"11 & 12歲級","女子組","50公尺自由式","分14組","第2/14組",5,"薛昀瀅","00:42.00"],["115/10/04",142,"11 & 12歲級","女子組","50公尺自由式","分14組","第4/14組",0,"胡以萌","00:40.00"],["115/10/04",142,"11 & 12歲級","女子組","50公尺自由式","分14組","第5/14組",9,"李孟庭","00:39.00"],["115/10/04",142,"11 & 12歲級","女子組","50公尺自由式","分14組","第9/14組",0,"劉于菲","00:35.48"],["115/10/04",142,"11 & 12歲級","女子組","50公尺自由式","分14組","第9/14組",8,"張宸語","00:35.41"],["115/10/04",142,"11 & 12歲級","女子組","50公尺自由式","分14組","第9/14組",9,"林岑謙","00:35.55"],["115/10/04",142,"11 & 12歲級","女子組","50公尺自由式","分14組","第11/14組",9,"簡歆宸","00:33.50"],["115/10/04",142,"11 & 12歲級","女子組","50公尺自由式","分14組","第13/14組",9,"余詠晴","00:32.00"],["115/10/04",143,"11 & 12歲級","男子組","50公尺自由式","分17組","第5/17組",8,"陳篤靖","00:39.00"],["115/10/04",143,"11 & 12歲級","男子組","50公尺自由式","分17組","第7/17組",1,"楊承勳","00:36.80"],["115/10/04",143,"11 & 12歲級","男子組","50公尺自由式","分17組","第16/17組",7,"饒宸宇","00:31.00"],["115/10/04",144,"13 & 14歲級","女子組","50公尺自由式","分8組","第3/8組",2,"喻奕婕","00:34.00"],["115/10/04",144,"13 & 14歲級","女子組","50公尺自由式","分8組","第4/8組",9,"邱湘甯","00:33.52"],["115/10/04",144,"13 & 14歲級","女子組","50公尺自由式","分8組","第7/8組",1,"楊詠甯","00:31.00"],["115/10/04",144,"13 & 14歲級","女子組","50公尺自由式","分8組","第8/8組",7,"黃歆甯","00:30.00"],["115/10/04",147,"15 ~ 17歲級","男子組","50公尺自由式","分10組","第4/10組",2,"陳威誌","00:28.73"],["115/10/04",147,"15 ~ 17歲級","男子組","50公尺自由式","分10組","第7/10組",3,"洪秉淵","00:27.00"],["115/10/04",150,"10及以下歲級","女子組","100公尺蝶式","分6組","第3/6組",4,"薛巧鈺","01:50.00"],["115/10/04",151,"10及以下歲級","男子組","100公尺蝶式","分8組","第3/8組",6,"饒宸安","01:58.00"],["115/10/04",151,"10及以下歲級","男子組","100公尺蝶式","分8組","第6/8組",6,"鄧丞勛","01:36.00"],["115/10/04",152,"11 & 12歲級","女子組","100公尺蝶式","分6組","第3/6組",0,"簡歆宸","01:38.00"],["115/10/04",152,"11 & 12歲級","女子組","100公尺蝶式","分6組","第3/6組",8,"余詠晴","01:35.00"],["115/10/04",153,"11 & 12歲級","男子組","100公尺蝶式","分8組","第3/8組",2,"楊承勳","01:37.00"],["115/10/04",153,"11 & 12歲級","男子組","100公尺蝶式","分8組","第6/8組",2,"饒宸宇","01:23.84"],["115/10/04",154,"13 & 14歲級","女子組","100公尺蝶式","分5組","第4/5組",0,"黃歆甯","01:19.00"],["115/10/04",157,"15 ~ 17歲級","男子組","100公尺蝶式","分6組","第4/6組",1,"洪秉淵","01:07.00"],["115/10/04",160,"10及以下歲級","女子組","4×50公尺自由式接力","分2組","第二組",9,"（接力隊）","03:04.00"],["115/10/04",162,"11 & 12歲級","女子組","4×50公尺自由式接力","分2組","第二組",7,"（接力隊）","02:15.00"],["115/10/04",164,"13 & 14歲級","女子組","4×100公尺自由式接力","未分組","第一組",3,"（接力隊）","04:53.00"]];
+
+const ROWS = DATA.map(a => ({
+  date:a[0], md:a[0].slice(4), no:a[1], age:a[2], sex:a[3], item:a[4],
+  tot:a[5], heat:a[6], lane:a[7], name:a[8], time:a[9]
+}));
+const RELAY = '（接力隊）';
+const ODD_TIMES = new Set(['34:56.78','40:39.99','99:99.99']);
+const WD = ['日','一','二','三','四','五','六'];
+const state = { date:'all', sex:'all', q:'' };
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function weekday(date){
+  const [y,m,d] = date.split('/').map(Number);
+  return WD[new Date(y+1911, m-1, d).getDay()];
+}
+const dates = [...new Set(ROWS.map(r => r.md))];
+const dateFull = md => ROWS.find(r => r.md === md).date;
+
+function match(r, s){
+  return (s.date === 'all' || r.md === s.date) &&
+         (s.sex === 'all' || r.sex === s.sex) &&
+         (!s.q || r.name.includes(s.q));
+}
+const current = () => ROWS.filter(r => match(r, state));
+const countFor = patch => ROWS.filter(r => match(r, Object.assign({}, state, patch))).length;
+
+/* ── 頁首摘要與姓名清單 ── */
+(function initStatic(){
+  const people = ROWS.filter(r => r.name !== RELAY);
+  const uniq = new Set(people.map(r => r.name));
+  const relays = ROWS.length - people.length;
+  $('#sum').textContent = `共 ${ROWS.length} 筆報名，${uniq.size} 位選手` + (relays ? `，另有 ${relays} 筆接力` : '');
+  const cnt = {};
+  people.forEach(r => cnt[r.name] = (cnt[r.name]||0) + 1);
+  const names = Object.keys(cnt).sort((a,b) => cnt[b]-cnt[a] || a.localeCompare(b,'zh-Hant'));
+  $('#names').innerHTML = names.map(n => `<option value="${esc(n)}">${cnt[n]} 項</option>`).join('') + '<option value="接力">接力</option>';
+})();
+
+/* ── 篩選按鈕 ── */
+function renderSegs(){
+  const mk = (val, label, n, pressed) =>
+    `<button type="button" data-v="${esc(val)}" aria-pressed="${pressed}"><span>${esc(label)}</span><small>${n}</small></button>`;
+  $('#segDate').innerHTML =
+    mk('all','全部', countFor({date:'all'}), state.date==='all') +
+    dates.map(md => mk(md, `${md} 週${weekday(dateFull(md))}`, countFor({date:md}), state.date===md)).join('');
+  $('#segSex').innerHTML =
+    mk('all','全部', countFor({sex:'all'}), state.sex==='all') +
+    ['男子組','女子組'].map(s => mk(s, s, countFor({sex:s}), state.sex===s)).join('');
+}
+
+/* ── 結果 ── */
+const isOdd = t => ODD_TIMES.has(t);
+function heatCell(r){
+  return esc(r.heat) + (r.tot === '未分組' ? '<small>未分組</small>' : '');
+}
+function renderList(){
+  const rows = current();
+  const active = state.date!=='all' || state.sex!=='all' || state.q;
+  $('#reset').hidden = !active;
+  $('#clearQ').hidden = !state.q;
+  $('#count').innerHTML = `顯示 <b>${rows.length}</b> 筆` + (active ? `（全部 ${ROWS.length} 筆）` : '');
+  if(!rows.length){
+    $('#list').innerHTML = `<div class="empty"><b>沒有符合的項目</b>請換一個日期或性別，或清除姓名再試一次。</div>`;
+    return;
+  }
+  let html = '';
+  dates.forEach(md => {
+    const g = rows.filter(r => r.md === md);
+    if(!g.length) return;
+    html += `<section class="day"><h2><span class="dd">${md}</span><span class="wd">週${weekday(g[0].date)}</span><span class="n">${g.length} 筆</span></h2>
+    <table class="sched"><thead><tr><th>項次</th><th>項目</th><th>組別</th><th>水道</th><th>姓名</th><th style="text-align:right">報名成績</th></tr></thead><tbody>`;
+    g.forEach(r => {
+      const relay = r.name === RELAY;
+      html += `<tr>
+        <td class="no">${r.no}</td>
+        <td class="ev"><b>${esc(r.item)}</b><span class="sub">${esc(r.age)}<span class="sx ${r.sex==='男子組'?'m':'f'}">${esc(r.sex)}</span></span></td>
+        <td class="ht">${heatCell(r)}</td>
+        <td class="ln"><span class="plate">${r.lane}</span></td>
+        <td class="nm${relay?' relay':''}">${esc(relay?'接力隊':r.name)}</td>
+        <td class="tm${isOdd(r.time)?' odd':''}">${esc(r.time)}</td>
+      </tr>`;
+    });
+    html += `</tbody></table></section>`;
+  });
+  $('#list').innerHTML = html;
+}
+
+function syncURL(){
+  try{
+    const p = new URLSearchParams();
+    if(state.date!=='all') p.set('d', state.date);
+    if(state.sex!=='all') p.set('s', state.sex==='女子組' ? '女' : '男');
+    if(state.q) p.set('q', state.q);
+    const qs = p.toString();
+    history.replaceState(null, '', qs ? '?'+qs : location.pathname);
+  }catch(e){}
+}
+function update(){ renderSegs(); renderList(); syncURL(); }
+
+$('#segDate').addEventListener('click', e => {
+  const b = e.target.closest('button'); if(!b) return;
+  state.date = b.dataset.v; update();
+});
+$('#segSex').addEventListener('click', e => {
+  const b = e.target.closest('button'); if(!b) return;
+  state.sex = b.dataset.v; update();
+});
+$('#q').addEventListener('input', e => { state.q = e.target.value.trim(); update(); });
+$('#clearQ').addEventListener('click', () => { $('#q').value=''; state.q=''; update(); $('#q').focus(); });
+$('#reset').addEventListener('click', () => { state.date='all'; state.sex='all'; state.q=''; $('#q').value=''; update(); });
+$('#btnPrint').addEventListener('click', () => window.print());
+
+/* 由網址還原篩選（方便把連結傳給隊員，例如 ?q=邱湘甯） */
+(function fromURL(){
+  const p = new URLSearchParams(location.search);
+  const d = p.get('d'); if(d && dates.includes(d)) state.date = d;
+  const s = p.get('s'); if(s==='男') state.sex='男子組'; if(s==='女') state.sex='女子組';
+  const q = p.get('q'); if(q){ state.q = q.trim(); $('#q').value = state.q; }
+})();
+update();
+
+/* ═════════ 下載 PDF / 圖片 ═════════ */
+const EXW = 1000;                       // 輸出畫面寬度(px)
+function filterSummary(){
+  const d = state.date==='all' ? '全部日期' : `${state.date}（週${weekday(dateFull(state.date))}）`;
+  const s = state.sex==='all' ? '全部性別' : state.sex;
+  const q = state.q ? `姓名：${state.q}` : '全部姓名';
+  return `${d}　${s}　${q}`;
+}
+function fileBase(){
+  const parts = ['裕德高中賽程'];
+  if(state.date!=='all') parts.push(state.date.replace('/','-'));
+  if(state.sex!=='all') parts.push(state.sex);
+  if(state.q) parts.push(state.q);
+  return parts.join('_');
+}
+function buildExport(rows){
+  let body = '', z = 0;
+  dates.forEach(md => {
+    const g = rows.filter(r => r.md === md);
+    if(!g.length) return;
+    body += `<tr class="day"><td colspan="8">${md}（週${weekday(g[0].date)}）<span>${g.length} 筆</span></td></tr>`;
+    z = 0;
+    g.forEach(r => {
+      const relay = r.name === RELAY;
+      body += `<tr class="${(z++%2)?'z':''}">
+        <td class="c-no">${r.no}</td><td>${esc(r.age)}</td>
+        <td class="${r.sex==='男子組'?'m':'f'}">${esc(r.sex)}</td>
+        <td class="c-it">${esc(r.item)}</td>
+        <td>${esc(r.heat)}${r.tot==='未分組'?'<br><span style="font-size:12px;color:#556d7e">未分組</span>':''}</td>
+        <td class="c-ln">${r.lane}</td><td class="c-nm">${esc(relay?'接力隊':r.name)}</td>
+        <td class="c-tm${isOdd(r.time)?' odd':''}">${esc(r.time)}</td></tr>`;
+    });
+  });
+  return `<div class="ex">
+    <div class="ex-head"><div class="ex-t">裕德高中游泳隊 賽程</div>
+      <div class="ex-s">115年全國北區A(2)游泳錦標賽（115/10/02 至 10/04）</div>
+      <div class="ex-f">篩選：${esc(filterSummary())}　共 ${rows.length} 筆</div></div>
+    <div class="ex-rope"></div>
+    <table class="ex-tb"><colgroup><col style="width:6%"><col style="width:13%"><col style="width:9%"><col style="width:20%"><col style="width:12%"><col style="width:7%"><col style="width:18%"><col style="width:15%"></colgroup>
+      <thead><tr><th>項次</th><th>歲級</th><th>性別</th><th>項目</th><th>組別</th><th>水道</th><th>姓名</th><th style="text-align:right;padding-right:16px">報名成績</th></tr></thead>
+      <tbody>${body}</tbody></table>
+    <div class="ex-note">報名時的編排資料，實際出賽組別與水道以大會現場公告為準。灰色報名成績為原網頁預設或異常值，僅供參考。資料來源：中華民國游泳協會(CTSA)，資料擷取日 2026/09/20。</div>
+  </div>`;
+}
+
+function setBusy(on, msg){
+  $('#busy').hidden = !on;
+  if(msg) $('#busyMsg').textContent = msg;
+  ['#btnPdf','#btnPng','#btnPrint'].forEach(s => $(s).disabled = on);
+}
+
+async function renderExport(rows){
+  const stage = $('#stage');
+  stage.innerHTML = buildExport(rows);
+  if(document.fonts && document.fonts.ready) await document.fonts.ready;
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  const H = stage.offsetHeight;
+  // 手機瀏覽器的畫布有面積上限，長表格自動降低解析度
+  const s = Math.max(0.8, Math.min(2, Math.sqrt(14e6 / (EXW*H)), 15000 / H));
+  const canvas = await html2canvas(stage, {
+    scale:s, backgroundColor:'#ffffff', useCORS:true, logging:false,
+    windowWidth:EXW, windowHeight:H, scrollX:0, scrollY:0
+  });
+  return { stage, canvas, s, H };
+}
+
+function pageBreaks(stage){
+  const base = stage.getBoundingClientRect().top;
+  const thead = stage.querySelector('thead');
+  const headTop = thead.getBoundingClientRect().top - base;
+  const headH = thead.offsetHeight;
+  const trs = [...stage.querySelectorAll('tbody tr')].map(tr => ({
+    top: tr.getBoundingClientRect().top - base, day: tr.classList.contains('day')
+  }));
+  const total = stage.offsetHeight;
+  const pageH = EXW * 277 / 194;        // A4 直式：內容區 194 × 277 mm
+  const pages = [];
+  let start = 0;
+  while(start < total - 1){
+    const avail = pages.length ? pageH - headH : pageH;
+    const limit = start + avail;
+    let end;
+    if(limit >= total){ end = total; }
+    else{
+      let c = -1;
+      for(let i=0;i<trs.length;i++){ if(trs[i].top > start+1 && trs[i].top <= limit+0.5) c = i; }
+      if(c > 0 && trs[c-1].day && trs[c-1].top > start+1) c--;   // 日期標題不要單獨留在頁尾
+      end = c >= 0 ? trs[c].top : limit;
+    }
+    pages.push([start, end]);
+    start = end;
+  }
+  return { pages, headTop, headH };
+}
+
+function savePdf({stage, canvas, s}, name){
+  const jsPDF = window.jspdf && window.jspdf.jsPDF;
+  if(!jsPDF) throw new Error('PDF 元件尚未載入');
+  const { pages, headTop, headH } = pageBreaks(stage);
+  const pdf = new jsPDF({unit:'mm', format:'a4', orientation:'portrait'});
+  pages.forEach(([a,b], i) => {
+    const first = i === 0;
+    const hCss = (b - a) + (first ? 0 : headH);
+    const pc = document.createElement('canvas');
+    pc.width = canvas.width; pc.height = Math.max(1, Math.round(hCss * s));
+    const ctx = pc.getContext('2d');
+    ctx.fillStyle = '#fff'; ctx.fillRect(0,0,pc.width,pc.height);
+    let dy = 0;
+    if(!first){                              // 每一頁重複表頭
+      const hy = Math.round(headTop*s), hh = Math.min(Math.round(headH*s), canvas.height-hy);
+      ctx.drawImage(canvas, 0, hy, canvas.width, hh, 0, 0, canvas.width, hh);
+      dy = Math.round(headH*s);
+    }
+    const sy = Math.round(a*s), sh = Math.min(Math.round((b-a)*s), canvas.height - sy);
+    ctx.drawImage(canvas, 0, sy, canvas.width, sh, 0, dy, canvas.width, sh);
+    if(i) pdf.addPage();
+    pdf.addImage(pc.toDataURL('image/jpeg', 0.92), 'JPEG', 8, 8, 194, hCss * 194 / EXW);
+    pdf.setFontSize(8); pdf.setTextColor(120);
+    pdf.text(`${i+1} / ${pages.length}`, 105, 291, {align:'center'});
+  });
+  pdf.save(name + '.pdf');
+}
+
+function savePng({canvas}, name){
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(blob => {
+      if(!blob){ reject(new Error('圖片產生失敗，請縮小篩選範圍後再試')); return; }
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = name + '.png';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 5000);
+      resolve();
+    }, 'image/png');
+  });
+}
+
+async function exportAs(kind){
+  const rows = current();
+  if(!rows.length){ alert('目前沒有符合的項目可以下載，請先調整篩選條件。'); return; }
+  if(!window.html2canvas){ alert('下載元件沒有載入成功，請確認網路連線後重新整理，或改用「列印」另存成 PDF。'); return; }
+  const y = window.scrollY;
+  window.scrollTo(0,0);
+  setBusy(true, kind==='pdf' ? '正在產生 PDF…' : '正在產生圖片…');
+  try{
+    await new Promise(r => setTimeout(r, 60));
+    const res = await renderExport(rows);
+    if(kind==='pdf') savePdf(res, fileBase()); else await savePng(res, fileBase());
+  }catch(err){
+    console.error(err);
+    alert('下載失敗：' + err.message + '\n可以縮小篩選範圍再試，或改用「列印」另存成 PDF。');
+  }finally{
+    $('#stage').innerHTML = '';
+    setBusy(false);
+    window.scrollTo(0,y);
+  }
+}
+$('#btnPdf').addEventListener('click', () => exportAs('pdf'));
+$('#btnPng').addEventListener('click', () => exportAs('png'));
+</script>
+</body>
+</html>
